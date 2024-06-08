@@ -52,14 +52,22 @@ public class principal {
 			System.out.println(product);
 			break;
 		case 3:
-			System.out.println("What's the name of the item you want to remove?");
-			String nameToRemove = sc.nextLine();
-			Products productToRemove = null;
-			for (Products p : productList) {
-				if (p.name.equals(nameToRemove)) {
-					productToRemove = p;
-					break;}
-				}
+            System.out.println("Enter the name of the item you want to remove:");
+            String nameToRemove = sc.nextLine();
+            Products productToRemove = null;
+            for (Products p : productList) {
+                if (p.name.equals(nameToRemove)) {
+                    productToRemove = p;
+                    break;
+                }
+            }
+            if (productToRemove != null) {
+                productList.remove(productToRemove);
+                System.out.println("Product removed: " + productToRemove);
+            } else {
+                System.out.println("Product not found.");
+            }
+            break;
 		case 4:
 			sc.close();
             return;
